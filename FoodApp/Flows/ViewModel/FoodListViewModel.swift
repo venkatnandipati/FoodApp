@@ -14,11 +14,11 @@ protocol FoodListViewProtocol {
 }
 
 final class FoodListViewModel: FoodListViewProtocol {
-
+    
     var reloadFoodItemsList: (([Items]) -> Void)?
-
+    
     var showDataFetchError: ((Error) -> Void)?
-
+    
     var dataFetchError: Error? {
         didSet {
             guard let _dataFetchError = dataFetchError else { return  }
@@ -32,7 +32,7 @@ final class FoodListViewModel: FoodListViewProtocol {
         }
     }
     private var newFoodItemListServiceRequestor: FoodItemServiceRequestorProtocol
-
+    
     init(newFoodItemListServiceRequestor: FoodItemServiceRequestorProtocol) {
         self.newFoodItemListServiceRequestor = newFoodItemListServiceRequestor
     }
@@ -41,21 +41,21 @@ final class FoodListViewModel: FoodListViewProtocol {
         await fetchFoodItemList(with: requestMapper)
     }
     func fetchFoodItemList(with requestMapper: FoodItemRequestMapper) async {
-
-            do {
-                let responseData = try await newFoodItemListServiceRequestor.getFoodItemsList(apiRequest: requestMapper)
-                if let err = responseData.error {
-                    dataFetchError = err
+        
+        do {
+            let responseData = try await newFoodItemListServiceRequestor.getFoodItemsList(apiRequest: requestMapper)
+            if let err = responseData.error {
+                dataFetchError = err
+            } else {
+                if let foodItems = responseData.itemModelArray, foodItems.count > 0 {
+                    foodItemsArray = foodItems
+                    foodItemsData = foodItems
                 } else {
-                    if let foodItems = responseData.itemModelArray, foodItems.count > 0 {
-                        foodItemsArray = foodItems
-                        foodItemsData = foodItems
-                    } else {
-                        dataFetchError =  CustomError.dataError
-                    }
+                    dataFetchError =  CustomError.dataError
                 }
-            } catch let serviceError {
-                dataFetchError =  serviceError
             }
+        } catch let serviceError {
+            dataFetchError =  serviceError
+        }
     }
 }

@@ -18,7 +18,7 @@ class FoodAppTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testFoodItemApiSuccess() {
         let expect = expectation(description: "API success")
         let requestMapper = FoodItemRequestMapper.mockDataFoodItemList(apiType: .mockApi)
@@ -29,9 +29,9 @@ class FoodAppTests: XCTestCase {
         waitForExpectations(timeout: 5)
         XCTAssertTrue(foodListVM.foodItemsArray?.count ?? 0 > 0, "test passed")
         if foodListVM.foodItemsArray?.count ?? 0 > 0 {
-        for item in foodListVM.foodItemsArray! {
-            XCTAssertNotNil(item.barcode, "food data is not nil")
-        }
+            for item in foodListVM.foodItemsArray! {
+                XCTAssertNotNil(item.barcode, "food data is not nil")
+            }
         }
     }
     func testFoodItemApiFailure() {
@@ -50,7 +50,6 @@ class FoodAppTests: XCTestCase {
         sut.showErrorAlertForFoodItemList(error: CustomError.dataError)
         sut.showErrorAlertForFoodItemList(error: CustomError.connectionFailed)
         sut.showErrorAlertForFoodItemList(error: CustomError.unexpected)
-        sut.
     }
     func makeSUT() -> FoodListViewController {
         let sut: FoodListViewController =  mainStoryboard().instantiate()

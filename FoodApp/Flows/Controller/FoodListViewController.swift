@@ -46,7 +46,7 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
         return arrFoodItems?[0].nutrients?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: FoodListPrivateContants.foodCellIdentifier, for: indexPath) as?  FoodItemTableViewCell, let items = arrFoodItems else {
+        guard let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: FoodListPrivateContants.foodCellIdentifier, for: indexPath) as?  FoodItemTableViewCell, let items = arrFoodItems else {
             return UITableViewCell()
         }
         let itemsData = (items[0].nutrients?[indexPath.item])!
@@ -87,7 +87,7 @@ extension FoodListViewController {
     }
 }
 extension FoodListViewController {
-     func showErrorAlertForFoodItemList(error: Error?) {
+    func showErrorAlertForFoodItemList(error: Error?) {
         guard let err = error else { return }
         if let customError = err as? CustomError {
             switch customError {
