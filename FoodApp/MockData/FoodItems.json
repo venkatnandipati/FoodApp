@@ -1,0 +1,224 @@
+{
+    "items": [
+        {
+            "barcode": "0842234000988",
+            "name": "The Ultimate Beefless Ground",
+            "brand": "Pinnacle Foods Group LLC",
+            "ingredients": "WATER, SOY PROTEIN CONCENTRATE*, EXPELLER PRESSED CANOLA OIL*, ORGANIC CANE SUGAR, SEA SALT, YEAST EXTRACT, ONION POWDER, GARLIC POWDER, CARAMEL COLOR, NATURAL FLAVORS (FROM PLANT SOURCES), SPICES.",
+            "package": {
+                "quantity": null,
+                "size": "100g"
+            },
+            "serving": {
+                "size": 57,
+                "measurement_unit": "g",
+                "size_fulltext": "0.5 cup"
+            },
+            "categories": [
+                "Vegetarian Frozen Meats"
+            ],
+            "nutrients": [
+                {
+                    "name": "Energy",
+                    "per_100g": 140,
+                    "measurement_unit": "KCAL",
+                    "rank": 300,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Protein",
+                    "per_100g": 21.05,
+                    "measurement_unit": "G",
+                    "rank": 600,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Total lipid (fat)",
+                    "per_100g": 2.63,
+                    "measurement_unit": "G",
+                    "rank": 800,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Carbohydrate, by difference",
+                    "per_100g": 8.77,
+                    "measurement_unit": "G",
+                    "rank": 1110,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Fiber, total dietary",
+                    "per_100g": 5.3,
+                    "measurement_unit": "G",
+                    "rank": 1200,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Sugars, total including NLEA",
+                    "per_100g": 1.75,
+                    "measurement_unit": "G",
+                    "rank": 1510,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Calcium, Ca",
+                    "per_100g": 105,
+                    "measurement_unit": "MG",
+                    "rank": 5300,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                },
+                {
+                    "name": "Iron, Fe",
+                    "per_100g": 3.16,
+                    "measurement_unit": "MG",
+                    "rank": 5400,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                },
+                {
+                    "name": "Sodium, Na",
+                    "per_100g": 404,
+                    "measurement_unit": "MG",
+                    "rank": 5800,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Vitamin C, total ascorbic acid",
+                    "per_100g": 0,
+                    "measurement_unit": "MG",
+                    "rank": 6300,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                },
+                {
+                    "name": "Vitamin A, IU",
+                    "per_100g": 0,
+                    "measurement_unit": "IU",
+                    "rank": 7500,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                },
+                {
+                    "name": "Fatty acids, total saturated",
+                    "per_100g": 0,
+                    "measurement_unit": "G",
+                    "rank": 9700,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                },
+                {
+                    "name": "Fatty acids, total trans",
+                    "per_100g": 0,
+                    "measurement_unit": "G",
+                    "rank": 15400,
+                    "data_points": 0,
+                    "description": "Calculated from value per serving size measure"
+                },
+                {
+                    "name": "Cholesterol",
+                    "per_100g": 0,
+                    "measurement_unit": "MG",
+                    "rank": 15700,
+                    "data_points": 0,
+                    "description": "Calculated from a daily value percentage per serving size measure"
+                }
+            ],
+            "diet_labels": {
+                "vegan": {
+                    "name": "Vegan",
+                    "is_compatible": true,
+                    "compatibility_level": 2,
+                    "confidence": true,
+                    "confidence_description": "Compatible with the Vegan diet."
+                },
+                "vegetarian": {
+                    "name": "Vegetarian",
+                    "is_compatible": true,
+                    "compatibility_level": 2,
+                    "confidence": true,
+                    "confidence_description": "Compatible with the Vegetarian diet."
+                },
+                "gluten_free": {
+                    "name": "Gluten Free",
+                    "is_compatible": true,
+                    "compatibility_level": 2,
+                    "confidence": true,
+                    "confidence_description": "Compatible with the Gluten Free diet."
+                }
+            },
+            "diet_flags": [],
+            "packaging_photos": {
+                "front": {
+                    "small": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/front_en.4.200.jpg",
+                    "thumb": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/front_en.4.100.jpg",
+                    "display": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/front_en.4.400.jpg"
+                },
+                "nutrition": {
+                    "small": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/nutrition_en.19.200.jpg",
+                    "thumb": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/nutrition_en.19.100.jpg",
+                    "display": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/nutrition_en.19.400.jpg"
+                },
+                "ingredients": {
+                    "small": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/ingredients_en.13.200.jpg",
+                    "thumb": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/ingredients_en.13.100.jpg",
+                    "display": "https://chompthis.com/api/assets/images/product/?i=084/223/400/0988/ingredients_en.13.400.jpg"
+                }
+            },
+            "allergens": [],
+            "brand_list": [
+                "Gardein",
+                "Pinnacle Foods Group LLC"
+            ],
+            "countries": [
+                "France",
+                "United States"
+            ],
+            "country_details": {
+                "english_speaking": 1,
+                "non_english_speaking": 1
+            },
+            "palm_oil_ingredients": [],
+            "ingredient_list": [
+                "Caramel Color",
+                "Expeller Pressed Canola Oil",
+                "From Plant Sources",
+                "Garlic Powder",
+                "Natural Flavors",
+                "Onion Powder",
+                "Organic Cane Sugar",
+                "Sea Salt",
+                "Soy Protein Concentrate",
+                "Spices",
+                "Water",
+                "Yeast Extract"
+            ],
+            "has_english_ingredients": true,
+            "minerals": [],
+            "vitamins": [],
+            "traces": [],
+            "description": "GARDEIN, THE ULTIMATE BEEFLESS GROUND",
+            "keywords": [
+                "Analogue",
+                "And",
+                "Beefles",
+                "Beverage",
+                "Food",
+                "Gardein",
+                "Gluten Free",
+                "Ground",
+                "Meat",
+                "Plant Based",
+                "The",
+                "Ultimate"
+            ]
+        }
+    ]
+}
