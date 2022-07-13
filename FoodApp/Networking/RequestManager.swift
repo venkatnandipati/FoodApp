@@ -55,7 +55,6 @@ extension FoodItemRequestMapper: SetUpApiRequestProtocol {
         urlRequest.httpMethod = ApiRequestType.get.rawValue
         return urlRequest
     }
-    
     var apiType: ApiType {
         switch self {
         case .liveDataFoodItemList(let apiType):
@@ -67,7 +66,6 @@ extension FoodItemRequestMapper: SetUpApiRequestProtocol {
     var apiMethod: ServiceRequestMethod {
         return .getFoodItemList
     }
-    
     var apiURL: URL? {
         var urlString = ServiceRequestUtility().getURLStringForMethod(method: apiMethod)
         urlString = urlString.appending("code=")
@@ -81,5 +79,4 @@ extension FoodItemRequestMapper: SetUpApiRequestProtocol {
         }
         return url
     }
-    
 }

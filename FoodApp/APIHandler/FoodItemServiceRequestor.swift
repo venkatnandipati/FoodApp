@@ -8,7 +8,6 @@
 import Foundation
 
 protocol FoodItemServiceRequestorProtocol {
-    
     /// This function is responsible for fetching fooditem list and returns a tuple of  optional Items Model and  error
     ///
     /// ```
@@ -17,7 +16,6 @@ protocol FoodItemServiceRequestorProtocol {
     /// - Warning: The function returns  an optional value also can throw an exception
     /// - Parameter apiRequest:  - an instance of SetUpApiRequestProtocol
     /// - Returns: A tuple of  optional Items Model array and optional error.
-    
     func getFoodItemsList(apiRequest: SetUpApiRequestProtocol) async throws -> (itemModelArray: [Items]?, error: Error?)
 }
 
@@ -38,5 +36,4 @@ struct FoodItemServiceRequestor: FoodItemServiceRequestorProtocol {
         }
         return foodItemsArray.count > 0 ? (foodItemsArray, nil) : (nil, CustomError.dataError)
     }
-    
 }

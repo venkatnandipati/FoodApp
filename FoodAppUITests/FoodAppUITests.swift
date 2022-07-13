@@ -20,7 +20,6 @@ class FoodAppUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
     func testMovieListNotLoaded() {
         let app = XCUIApplication()
         let tableCell = app.tables.children(matching: .cell).element(boundBy: 0).staticTexts["FoodNameLabel"]
