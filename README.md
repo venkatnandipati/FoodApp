@@ -4,9 +4,13 @@
 
  FoodApp Application has been developed in Swift 5, following MVVM design pattern and Test-driven development approach. Used **food/branded/barcode** API to get nutrients foods . Below screenshots shows Application structure and testcase results. 
 
-/Users/venkateswarareddynandipati/Desktop/Screenshot 2022-07-13 at 8.23.18 PM.png
+<img width="1072" alt="Screenshot 2022-07-13 at 8 23 18 PM" src="https://user-images.githubusercontent.com/6996849/178765122-0116e36d-0e33-431f-b809-9c3f4644b0f3.png">
 
- 
+APP Flow ScrrenShots
+
+ ![Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20 13 27](https://user-images.githubusercontent.com/6996849/178765220-33b80455-a2bd-44a8-a9eb-fc4fc44f6310.png)
+![Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20 13 32](https://user-images.githubusercontent.com/6996849/178765258-ad625eca-b538-41aa-8e47-63502a79c9f9.png)
+
 ## Supported version
 - iOS 15 onwards  
 
