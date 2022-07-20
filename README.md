@@ -9,6 +9,7 @@
 APP Flow ScrrenShots
 
  ![Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20 13 27](https://user-images.githubusercontent.com/6996849/178765220-33b80455-a2bd-44a8-a9eb-fc4fc44f6310.png)
+ 
 ![Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20 13 32](https://user-images.githubusercontent.com/6996849/178765258-ad625eca-b538-41aa-8e47-63502a79c9f9.png)
 
 ## Supported version
@@ -42,11 +43,6 @@ $ git clone https://github.com/venkatnandipati/FoodApp.git
 
 * pod 'SwiftLint'
 * pod 'Kingfisher'
-
-## Screenshots
-/Users/venkateswarareddynandipati/Desktop/Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20.13.27.png
-
-/Users/venkateswarareddynandipati/Desktop/Simulator Screen Shot - iPhone 11 Pro - 2022-07-13 at 20.13.32.png
 
 ## Notes 
 FoodApp application is tested in iPhone simulator (iOS 15.2) and not tested in real device.
