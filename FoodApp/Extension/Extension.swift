@@ -17,6 +17,7 @@ extension UIStoryboard {
         return vc1
     }
 }
+
 extension NSObject {
     class var className: String {
         String(describing: self)

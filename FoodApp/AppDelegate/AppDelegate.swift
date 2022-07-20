@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCommonNavigationBar()
         return true
     }
+
     private func setupCommonNavigationBar() {
         UINavigationBar.appearance().barTintColor = UIColor(displayP3Red: 105/255, green: 78/255, blue: 34/255, alpha: 1.0)
         UINavigationBar.appearance().backgroundColor = UIColor(displayP3Red: 122/255, green: 62/255, blue: 75/255, alpha: 1.0)

@@ -19,11 +19,10 @@
 		4E5C39B4287DBCD300204139 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39B0287DBCD300204139 /* RequestManager.swift */; };
 		4E5C39B5287DBCD300204139 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39B1287DBCD300204139 /* NetworkManager.swift */; };
 		4E5C39B7287DBD6700204139 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39B6287DBD6700204139 /* FoodListViewController.swift */; };
-		4E637949287DC5A8008EF49C /* FoodListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E637948287DC5A8008EF49C /* FoodListDetailViewController.swift */; };
-		4E63794C287DC6F6008EF49C /* FoodItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E63794A287DC6F6008EF49C /* FoodItemTableViewCell.xib */; };
 		4E63794D287DC6F6008EF49C /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63794B287DC6F6008EF49C /* FoodItemTableViewCell.swift */; };
 		4E63794F287DC954008EF49C /* FoodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63794E287DC954008EF49C /* FoodListViewModel.swift */; };
 		4E637951287E8E4D008EF49C /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E637950287E8E4D008EF49C /* StoryboardHelper.swift */; };
+		4E7AD1082886BCE70047FF22 /* FoodListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AD1072886BCE70047FF22 /* FoodListDetailViewController.swift */; };
 		4EBF07F5287D4BDA00EEBB7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF07F4287D4BDA00EEBB7E /* AppDelegate.swift */; };
 		4EBF07FC287D4BDA00EEBB7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF07FA287D4BDA00EEBB7E /* Main.storyboard */; };
 		4EBF07FE287D4BDC00EEBB7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF07FD287D4BDC00EEBB7E /* Assets.xcassets */; };
@@ -71,11 +70,10 @@
 		4E5C39B0287DBCD300204139 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		4E5C39B1287DBCD300204139 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4E5C39B6287DBD6700204139 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
-		4E637948287DC5A8008EF49C /* FoodListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListDetailViewController.swift; sourceTree = "<group>"; };
-		4E63794A287DC6F6008EF49C /* FoodItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodItemTableViewCell.xib; sourceTree = "<group>"; };
 		4E63794B287DC6F6008EF49C /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
 		4E63794E287DC954008EF49C /* FoodListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewModel.swift; sourceTree = "<group>"; };
 		4E637950287E8E4D008EF49C /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
+		4E7AD1072886BCE70047FF22 /* FoodListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListDetailViewController.swift; sourceTree = "<group>"; };
 		4EBF07F1287D4BDA00EEBB7E /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EBF07F4287D4BDA00EEBB7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EBF07FB287D4BDA00EEBB7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -258,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4E5C39B6287DBD6700204139 /* FoodListViewController.swift */,
-				4E637948287DC5A8008EF49C /* FoodListDetailViewController.swift */,
+				4E7AD1072886BCE70047FF22 /* FoodListDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				4E63794B287DC6F6008EF49C /* FoodItemTableViewCell.swift */,
-				4E63794A287DC6F6008EF49C /* FoodItemTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,7 +431,6 @@
 			files = (
 				4EBF0801287D4BDC00EEBB7E /* LaunchScreen.storyboard in Resources */,
 				4E5C399A287D64A400204139 /* FoodItems.json in Resources */,
-				4E63794C287DC6F6008EF49C /* FoodItemTableViewCell.xib in Resources */,
 				4EBF07FE287D4BDC00EEBB7E /* Assets.xcassets in Resources */,
 				4EBF07FC287D4BDA00EEBB7E /* Main.storyboard in Resources */,
 			);
@@ -591,6 +587,7 @@
 				4E5C39B5287DBCD300204139 /* NetworkManager.swift in Sources */,
 				4E63794D287DC6F6008EF49C /* FoodItemTableViewCell.swift in Sources */,
 				4EBF07F5287D4BDA00EEBB7E /* AppDelegate.swift in Sources */,
+				4E7AD1082886BCE70047FF22 /* FoodListDetailViewController.swift in Sources */,
 				4E63794F287DC954008EF49C /* FoodListViewModel.swift in Sources */,
 				4E5C39B4287DBCD300204139 /* RequestManager.swift in Sources */,
 				4E5C399C287DB79900204139 /* ItemResponse.swift in Sources */,
@@ -598,7 +595,6 @@
 				4E5C39A0287DBA5600204139 /* MockDataRequestor.swift in Sources */,
 				4E5C399E287DB8E400204139 /* FoodItemServiceRequestor.swift in Sources */,
 				4EBF087A287D54B200EEBB7E /* Constants.swift in Sources */,
-				4E637949287DC5A8008EF49C /* FoodListDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,11 +14,13 @@ class FoodListDetailViewController: UIViewController {
     @IBOutlet private weak var barCodeLabel: UILabel!
     @IBOutlet weak var nutrionImage: UIImageView!
     var foodItemDetail: Items?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setfoodItemDetails()
     }
+
     // MARK: UI UPDATION
     private func setfoodItemDetails() {
         resetAllFields()
@@ -32,6 +34,7 @@ class FoodListDetailViewController: UIViewController {
         barCodeLabel.text = "\(Constants.FoodItemViewTitles.barCode) \(foodItemDetail?.barcode ?? "")"
         nameLabel.text =  "\(Constants.FoodItemViewTitles.ingredients) \(foodItemDetail?.ingredients ?? "")"
     }
+
     private func resetAllFields() {
         headerLabel.text =  ""
         subHeadingLabel.text = ""

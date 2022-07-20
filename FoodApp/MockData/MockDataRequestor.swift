@@ -35,6 +35,7 @@ protocol MockDataRequestorProtocol {
 }
 
 struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
+
     func getFoodItemsList(apiRequest: SetUpApiRequestProtocol) async throws -> (itemModelArray: [Items]?, error: Error?) {
         let responseType = apiRequest.getMockDataResponseType(apiType: apiRequest.apiType)
         let method = apiRequest.apiMethod
@@ -59,10 +60,10 @@ struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
             }
         }
     }
+
     private func parseMockData<T: Decodable>(resultType: T.Type,
                                              mockData: Data,
-                                             apiRequest: SetUpApiRequestProtocol
-    ) async throws -> (responseData: T?, serviceError: Error?) {
+                                             apiRequest: SetUpApiRequestProtocol) async throws -> (responseData: T?, serviceError: Error?) {
         if !Reachability.isConnectedToNetwork() {
             return (nil, CustomError.connectionFailed)
         }
@@ -74,6 +75,7 @@ struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
             return (nil, CustomError.unexpected)
         }
     }
+
     private func getMockDataResponseFoodItems(responseType: MockDataResponseType) -> Data? {
         switch responseType {
         case .successWithResult:
@@ -87,12 +89,14 @@ struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
         }
         return nil
     }
+
     private func getStubDataFromFile(fileName: String) -> Data? {
         guard let jsonData = readFile(forName: fileName) else {
             return nil
         }
         return jsonData
     }
+
     private func readFile(forName name: String) -> Data? {
         do {
             if let bundlePath = Bundle.main.path(forResource: name, ofType: "json"),

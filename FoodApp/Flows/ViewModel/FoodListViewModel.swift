@@ -1,5 +1,5 @@
 //
-//  MoviesViewModel.swift
+//  FoodListViewModel.swift
 //  FoosApp
 //
 // Created by VenkateswaraReddy Nandipati on 11/07/22.
@@ -8,12 +8,14 @@
 import Foundation
 
 protocol FoodListViewProtocol {
+
     func getFoodItemsList() async
     var reloadFoodItemsList: (([Items]) -> Void)? { get  set}
     var showDataFetchError: ((Error) -> Void)? { get  set}
 }
 
 final class FoodListViewModel: FoodListViewProtocol {
+
     var reloadFoodItemsList: (([Items]) -> Void)?
     var showDataFetchError: ((Error) -> Void)?
     var dataFetchError: Error? {
@@ -32,10 +34,12 @@ final class FoodListViewModel: FoodListViewProtocol {
     init(newFoodItemListServiceRequestor: FoodItemServiceRequestorProtocol) {
         self.newFoodItemListServiceRequestor = newFoodItemListServiceRequestor
     }
+
     func getFoodItemsList() async {
         let requestMapper = FoodItemRequestMapper.liveDataFoodItemList(apiType: .liveApi)
         await fetchFoodItemList(with: requestMapper)
     }
+
     func fetchFoodItemList(with requestMapper: FoodItemRequestMapper) async {
         do {
             let responseData = try await newFoodItemListServiceRequestor.getFoodItemsList(apiRequest: requestMapper)

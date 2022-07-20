@@ -13,7 +13,9 @@ enum CustomError: Error {
     // Throw in all other cases
     case unexpected
 }
+
 extension CustomError: LocalizedError {
+
     public var errorMessage: String {
         switch self {
         case .connectionFailed:

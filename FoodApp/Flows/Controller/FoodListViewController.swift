@@ -12,39 +12,38 @@ private struct FoodListPrivateContants {
     static let foodListCellNibName = "FoodItemTableViewCell"
     static let defaultCellHeight = 60.0
 }
+
 class FoodListViewController: UIViewController {
+
     private var arrFoodItems: [Items]?
-    @IBOutlet weak private var foodListTableView: UITableView!
+    @IBOutlet weak var foodListTableView: UITableView!
     lazy var viewModel: FoodListViewProtocol = {
         FoodListViewModel.init(newFoodItemListServiceRequestor: FoodItemServiceRequestor())
     }() as FoodListViewProtocol
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initialiseTableViewComponents()
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
         fetchFoodItems()
         didReceiveFoodItemData()
         foodItemListDidFailWithError()
+        // Do any additional setup after loading the view.
     }
+
     // MARK: Definng UI Components
     private func initialiseTableViewComponents() {
         foodListTableView.estimatedRowHeight = FoodListPrivateContants.defaultCellHeight
         foodListTableView.rowHeight = UITableView.automaticDimension
         foodListTableView.tableFooterView = UIView(frame: .zero)
-        registerNibs()
-    }
-    private func registerNibs() {
-        let itemsCellNib = UINib(nibName: FoodListPrivateContants.foodListCellNibName, bundle: nil)
-        foodListTableView!.register(itemsCellNib, forCellReuseIdentifier: FoodListPrivateContants.foodCellIdentifier)
     }
 }
+
 extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrFoodItems?[0].nutrients?.count ?? 0
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: FoodItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: FoodListPrivateContants.foodCellIdentifier, for: indexPath) as?  FoodItemTableViewCell, let items = arrFoodItems else {
             return UITableViewCell()
@@ -53,6 +52,7 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupData(itemsData: itemsData, package: items[0])
         return cell
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedFoodItem = arrFoodItems?[0]
         let foodListDetailView: FoodListDetailViewController =  mainStoryboard().instantiate()
@@ -60,6 +60,7 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(foodListDetailView, animated: true)
     }
 }
+
 extension FoodListViewController {
     // MARK: - View Model Call Backs
     private func didReceiveFoodItemData() {
@@ -71,6 +72,7 @@ extension FoodListViewController {
             }
         }
     }
+
     private func foodItemListDidFailWithError() {
         // Show network error message
         viewModel.showDataFetchError = { [weak self] error in
@@ -79,6 +81,7 @@ extension FoodListViewController {
             }
         }
     }
+
     private func fetchFoodItems() {
         // Get news data from VM
         Task { [weak self] in
@@ -86,7 +89,10 @@ extension FoodListViewController {
         }
     }
 }
+
 extension FoodListViewController {
+    // showing alerts for if network calls fail
+
     func showErrorAlertForFoodItemList(error: Error?) {
         guard let err = error else { return }
         if let customError = err as? CustomError {
