@@ -35,28 +35,26 @@ protocol MockDataRequestorProtocol {
 }
 
 struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
-
-    func getFoodItemsList(apiRequest: SetUpApiRequestProtocol) async throws -> (itemModelArray: [Items]?, error: Error?) {
+    func getFoodItemsList(apiRequest: SetUpApiRequestProtocol) async throws -> Result<ItemResponse, CustomError> {
         let responseType = apiRequest.getMockDataResponseType(apiType: apiRequest.apiType)
         let method = apiRequest.apiMethod
         switch method {
         case .getFoodItemList:
             guard let mockData = getMockDataResponseFoodItems(responseType: responseType) else {
-                return (nil, CustomError.unexpected)
+                return .failure(.unexpected)
             }
             do {
                 let mockFoodItemsData = try await parseMockData(resultType: ItemResponse.self, mockData: mockData, apiRequest: apiRequest)
                 guard let responseData = mockFoodItemsData.responseData else {
-                    return (nil, mockFoodItemsData.serviceError)
+                    return .failure(.dataError)
                 }
                 var foodItemsArray = [Items]()
                 for item in responseData.items {
                     foodItemsArray.append(item)
                 }
-                return (foodItemsArray, nil)
-            } catch let error {
-                debugPrint(error.localizedDescription)
-                return (nil, CustomError.unexpected)
+                return .success(responseData)
+            } catch {
+                return .failure(.unexpected)
             }
         }
     }
@@ -91,22 +89,9 @@ struct MockDataServiceRequestor: FoodItemServiceRequestorProtocol {
     }
 
     private func getStubDataFromFile(fileName: String) -> Data? {
-        guard let jsonData = readFile(forName: fileName) else {
+        guard let jsonData = Constants.readFile(forName: fileName) else {
             return nil
         }
         return jsonData
-    }
-
-    private func readFile(forName name: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: name, ofType: "json"),
-               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                return jsonData
-            }
-        } catch {
-            print(error)
-            return nil
-        }
-        return nil
     }
 }

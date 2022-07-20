@@ -15,25 +15,30 @@ struct NetworkManager {
     /// - Warning: The function returns  an optional value also can throw an exception
     /// - Parameter resultType:  - Generic data model to capture decoded response
     /// - Parameter apiRequest:  - an instance of SetUpApiRequestProtocol protocol
-    /// - Returns: A tuple of  optional passed Data Model object and optional error.
+    /// - Returns: result  success and failure response
     static func initiateServiceRequest<T: Decodable>(resultType: T.Type,
                                                      apiRequest: SetUpApiRequestProtocol
-    ) async throws -> (responseData: T?, serviceError: Error?) {
+    ) async throws -> Result<T, CustomError> {
         if !Reachability.isConnectedToNetwork() {
-            return (nil, CustomError.connectionFailed)
+            return .failure((.connectionFailed))
         }
         do {
-            guard let _urlRequest = apiRequest.urlRequest else { return  (nil, CustomError.unexpected) }
+            guard let _urlRequest = apiRequest.urlRequest else { return  .failure(.unexpected) }
             let (serverData, serverUrlResponse) = try await URLSession.shared.data(for: _urlRequest)
-            guard let httpStausCode = (serverUrlResponse as? HTTPURLResponse)?.statusCode,
-                  (200...299).contains(httpStausCode) else {
-                      return (nil, CustomError.unexpected)
-                  }
-            let results  =  try JSONDecoder().decode(resultType, from: serverData)
-            return (results, nil)
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            return (nil, CustomError.unexpected)
+            guard let response = serverUrlResponse as? HTTPURLResponse else {
+                return .failure(.dataError)
+            }
+            switch response.statusCode {
+            case 200...299:
+                guard let decodedResponse = try? JSONDecoder().decode(resultType, from: serverData) else {
+                    return .failure(.dataError)
+                }
+                return .success(decodedResponse)
+            default:
+                return .failure(.unexpected)
+            }
+        } catch {
+            return .failure(.unexpected)
         }
     }
 }

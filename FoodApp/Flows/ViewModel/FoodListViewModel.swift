@@ -8,7 +8,6 @@
 import Foundation
 
 protocol FoodListViewProtocol {
-
     func getFoodItemsList() async
     var reloadFoodItemsList: (([Items]) -> Void)? { get  set}
     var showDataFetchError: ((Error) -> Void)? { get  set}
@@ -37,22 +36,22 @@ final class FoodListViewModel: FoodListViewProtocol {
 
     func getFoodItemsList() async {
         let requestMapper = FoodItemRequestMapper.liveDataFoodItemList(apiType: .liveApi)
-        await fetchFoodItemList(with: requestMapper)
-    }
-
-    func fetchFoodItemList(with requestMapper: FoodItemRequestMapper) async {
-        do {
-            let responseData = try await newFoodItemListServiceRequestor.getFoodItemsList(apiRequest: requestMapper)
-            if let err = responseData.error {
-                dataFetchError = err
-            } else {
-                if let foodItems = responseData.itemModelArray, foodItems.count > 0 {
-                    foodItemsArray = foodItems
-                    foodItemsData = foodItems
-                } else {
-                    dataFetchError =  CustomError.dataError
+        await fetchFoodItemList(with: requestMapper) { [weak self] result in
+             switch result {
+             case .success(let response):
+                 if let foodItems = response.items as? [Items], foodItems.count > 0 {
+                     self?.foodItemsArray = foodItems
+                     self?.foodItemsData = foodItems
                 }
-            }
+             case .failure(let error):
+                 self?.dataFetchError = error
+             }
+        }
+    }
+    func fetchFoodItemList(with requestMapper: FoodItemRequestMapper, completion: @escaping (Result<ItemResponse, CustomError>) -> Void) async {
+        do {
+         let result = try await newFoodItemListServiceRequestor.getFoodItemsList(apiRequest: requestMapper)
+          completion(result)
         } catch let serviceError {
             dataFetchError =  serviceError
         }

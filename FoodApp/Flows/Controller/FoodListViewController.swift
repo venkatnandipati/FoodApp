@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 private struct FoodListPrivateContants {
     static let foodCellIdentifier = "foodItemCell"
     static let foodListCellNibName = "FoodItemTableViewCell"
@@ -71,6 +71,7 @@ extension FoodListViewController {
                 self?.foodListTableView.reloadData()
             }
         }
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
 
     private func foodItemListDidFailWithError() {
@@ -83,6 +84,7 @@ extension FoodListViewController {
     }
 
     private func fetchFoodItems() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         // Get news data from VM
         Task { [weak self] in
             await self?.viewModel.getFoodItemsList()

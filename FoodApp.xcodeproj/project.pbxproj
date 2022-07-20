@@ -13,7 +13,6 @@
 		4E5C399A287D64A400204139 /* FoodItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C3999287D64A400204139 /* FoodItems.json */; };
 		4E5C399C287DB79900204139 /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C399B287DB79900204139 /* ItemResponse.swift */; };
 		4E5C399E287DB8E400204139 /* FoodItemServiceRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C399D287DB8E400204139 /* FoodItemServiceRequestor.swift */; };
-		4E5C39A0287DBA5600204139 /* MockDataRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C399F287DBA5600204139 /* MockDataRequestor.swift */; };
 		4E5C39A7287DBC0A00204139 /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39A6287DBC0A00204139 /* AlertHandler.swift */; };
 		4E5C39B3287DBCD300204139 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39AF287DBCD300204139 /* Reachability.swift */; };
 		4E5C39B4287DBCD300204139 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C39B0287DBCD300204139 /* RequestManager.swift */; };
@@ -33,6 +32,7 @@
 		4EBF084B287D4E9E00EEBB7E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF0847287D4E9E00EEBB7E /* Extension.swift */; };
 		4EBF0862287D51E100EEBB7E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF085D287D51E000EEBB7E /* Items.swift */; };
 		4EBF087A287D54B200EEBB7E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF0879287D54B200EEBB7E /* Constants.swift */; };
+		4EC783A028881C3200553980 /* MockDataRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC7839F28881C3200553980 /* MockDataRequestor.swift */; };
 		E0E7526835AEF3C7E425600D /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0813FA5BA67E908BDF3E71A0 /* Pods_FoodApp.framework */; };
 		E1D055FCD63952786148AA29 /* Pods_FoodAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E03FBCEAF048F168DC0E99 /* Pods_FoodAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,6 @@
 		4E5C3999287D64A400204139 /* FoodItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FoodItems.json; sourceTree = "<group>"; };
 		4E5C399B287DB79900204139 /* ItemResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
 		4E5C399D287DB8E400204139 /* FoodItemServiceRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemServiceRequestor.swift; sourceTree = "<group>"; };
-		4E5C399F287DBA5600204139 /* MockDataRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataRequestor.swift; sourceTree = "<group>"; };
 		4E5C39A6287DBC0A00204139 /* AlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
 		4E5C39AF287DBCD300204139 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4E5C39B0287DBCD300204139 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		4EBF0847287D4E9E00EEBB7E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4EBF085D287D51E000EEBB7E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		4EBF0879287D54B200EEBB7E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4EC7839F28881C3200553980 /* MockDataRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataRequestor.swift; sourceTree = "<group>"; };
 		51E03FBCEAF048F168DC0E99 /* Pods_FoodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52100FE33B57BC5585B2F157 /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
 		79F51089811C1D5593731F9C /* Pods_FoodApp_FoodAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp_FoodAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				4E5C3999287D64A400204139 /* FoodItems.json */,
-				4E5C399F287DBA5600204139 /* MockDataRequestor.swift */,
+				4EC7839F28881C3200553980 /* MockDataRequestor.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -592,9 +592,9 @@
 				4E5C39B4287DBCD300204139 /* RequestManager.swift in Sources */,
 				4E5C399C287DB79900204139 /* ItemResponse.swift in Sources */,
 				4EBF084B287D4E9E00EEBB7E /* Extension.swift in Sources */,
-				4E5C39A0287DBA5600204139 /* MockDataRequestor.swift in Sources */,
 				4E5C399E287DB8E400204139 /* FoodItemServiceRequestor.swift in Sources */,
 				4EBF087A287D54B200EEBB7E /* Constants.swift in Sources */,
+				4EC783A028881C3200553980 /* MockDataRequestor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

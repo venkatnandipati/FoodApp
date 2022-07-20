@@ -15,7 +15,6 @@ struct Constants {
     struct URLString {
         static let getFoodItem = "https://chompthis.com/api/v2/food/branded/barcode.php?"
     }
-
     struct FoodItemCellTitles {
         static let nutrientName = "Nutrient Name:"
         static let description = "Description:"
@@ -32,5 +31,16 @@ struct Constants {
         static let dataErrorTitle = "Unable To Retrieve Data"
         static let unknownErrorTitle = "Error Occured"
         static let okTitle = "Ok"
+    }
+    static func readFile(forName name: String) -> Data? {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: name, ofType: "json"),
+               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+                return jsonData
+            }
+        } catch {
+            return nil
+        }
+        return nil
     }
 }

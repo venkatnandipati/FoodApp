@@ -6,6 +6,7 @@ target 'FoodApp' do
   use_frameworks!
   pod 'SwiftLint'
   pod 'Kingfisher', '~> 7.0'
+  pod 'MBProgressHUD'
   # Pods for FoodApp
 
   target 'FoodAppTests' do

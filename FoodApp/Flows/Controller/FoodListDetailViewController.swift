@@ -8,7 +8,7 @@
 import UIKit
 
 class FoodListDetailViewController: UIViewController {
-    @IBOutlet private weak var headerLabel: UILabel!
+    @IBOutlet private(set) weak var headerLabel: UILabel!
     @IBOutlet private weak var subHeadingLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var barCodeLabel: UILabel!

@@ -1,20 +1,24 @@
 PODS:
   - Kingfisher (7.3.0)
+  - MBProgressHUD (1.2.0)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
+  - MBProgressHUD
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - MBProgressHUD
     - SwiftLint
 
 SPEC CHECKSUMS:
   Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: ae6cefdd81d0fc92f67691413a405846059e1bd0
+PODFILE CHECKSUM: 543a4cff4af082e0224e1c0fe2579c4787b8072d
 
 COCOAPODS: 1.11.3

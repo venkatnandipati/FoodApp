@@ -10,12 +10,10 @@ import XCTest
 
 class FoodAppTests: XCTestCase {
     var foodListVM: FoodListViewModel!
-    var sut: FoodListViewController!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let mockDataServiceRequestor = MockDataServiceRequestor()
         foodListVM = FoodListViewModel.init(newFoodItemListServiceRequestor: mockDataServiceRequestor)
-        sut = makeSUT()
     }
 
     override func tearDownWithError() throws {
@@ -26,11 +24,20 @@ class FoodAppTests: XCTestCase {
         let expect = expectation(description: "API success")
         let requestMapper = FoodItemRequestMapper.mockDataFoodItemList(apiType: .mockApi)
         Task {
-            await foodListVM.fetchFoodItemList(with: requestMapper)
-            expect.fulfill()
+            await foodListVM.fetchFoodItemList(with: requestMapper) { [weak self] result in
+                switch result {
+                case .success(let response):
+                    if let foodItems = response.items as? [Items], foodItems.count > 0 {
+                        self?.foodListVM?.foodItemsArray = foodItems
+                    }
+                    XCTAssertTrue(self?.foodListVM.foodItemsArray?.count ?? 0 > 0, "test passed")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                expect.fulfill()
+            }
         }
-        waitForExpectations(timeout: 5)
-        XCTAssertTrue(foodListVM.foodItemsArray?.count ?? 0 > 0, "test passed")
+        waitForExpectations(timeout: 5, handler: nil)
         if foodListVM.foodItemsArray?.count ?? 0 > 0 {
             for item in foodListVM.foodItemsArray! {
                 XCTAssertNotNil(item.barcode, "food data is not nil")
@@ -39,17 +46,41 @@ class FoodAppTests: XCTestCase {
     }
 
     func testFoodItemApiFailure() {
+        let expect = expectation(description: "API Failure")
+        let requestMapper = FoodItemRequestMapper.mockDataFoodItemList(apiType: .liveApi)
+        Task {
+            await foodListVM.fetchFoodItemList(with: requestMapper) { result in
+                switch result {
+                case .success(let response):
+                    XCTAssertNil(response.items, "food array not initialised as no data received")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                expect.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+    func testFoodItemApiInvalidAPI() {
         let expect = expectation(description: "API invaild Error")
         let requestMapper = FoodItemRequestMapper.mockDataFoodItemList(apiType: .invalidApi)
         Task {
-            await foodListVM.fetchFoodItemList(with: requestMapper)
-            expect.fulfill()
+            await foodListVM.fetchFoodItemList(with: requestMapper) { result in
+                switch result {
+                case .success(let response):
+                    XCTAssertNil(response.items, "food array not initialised as no data received")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                expect.fulfill()
+            }
         }
         waitForExpectations(timeout: 5)
-        XCTAssertNil(foodListVM.foodItemsArray, "food array not initialised as no data received")
     }
 
     func testViewDidLoadCallsPresenter() {
+        let sut = makeSUT()
         let nav = UINavigationController.init(rootViewController: sut)
         sut.showErrorAlertForFoodItemList(error: CustomError.dataError)
         sut.showErrorAlertForFoodItemList(error: CustomError.connectionFailed)
@@ -62,14 +93,11 @@ class FoodAppTests: XCTestCase {
             XCTFail("Delay interrupted")
         }
     }
-
     func makeSUT() -> FoodListViewController {
         let sut: FoodListViewController =  mainStoryboard().instantiate()
         sut.loadViewIfNeeded()
-        sut.viewDidLoad()
         return sut
     }
-
     override func tearDown() {
         super.tearDown()
         self.foodListVM = nil
