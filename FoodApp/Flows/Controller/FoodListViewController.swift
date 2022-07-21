@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 private struct FoodListPrivateContants {
     static let foodCellIdentifier = "foodItemCell"
     static let foodListCellNibName = "FoodItemTableViewCell"
@@ -54,9 +53,9 @@ extension FoodListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFoodItem = arrFoodItems?[0]
-        let foodListDetailView: FoodListDetailViewController =  mainStoryboard().instantiate()
-        foodListDetailView.foodItemDetail = selectedFoodItem
+        let selectedFoodItem = arrFoodItems?[0].nutrients?[indexPath.item]
+        let foodListDetailView: FoodDetailViewController =  mainStoryboard().instantiate()
+        foodListDetailView.foodNutrientDetail = selectedFoodItem
         navigationController?.pushViewController(foodListDetailView, animated: true)
     }
 }
@@ -69,9 +68,10 @@ extension FoodListViewController {
             Task {[weak self] in
                 self?.arrFoodItems = foodItems
                 self?.foodListTableView.reloadData()
+                  self?.hideIndicator()
             }
         }
-        MBProgressHUD.hide(for: self.view, animated: true)
+
     }
 
     private func foodItemListDidFailWithError() {
@@ -84,8 +84,10 @@ extension FoodListViewController {
     }
 
     private func fetchFoodItems() {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        // Get news data from VM
+        DispatchQueue.main.async {
+            self.showIndicator()
+        }
+        // Get food Items Api Call From VM
         Task { [weak self] in
             await self?.viewModel.getFoodItemsList()
         }

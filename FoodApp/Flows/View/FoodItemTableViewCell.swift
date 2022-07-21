@@ -10,8 +10,8 @@ import Kingfisher
 
 class FoodItemTableViewCell: UITableViewCell {
     @IBOutlet weak private (set) var lblName: UILabel!
-    @IBOutlet weak private var lblbrandName: UILabel!
-    @IBOutlet weak private var lblingredientsName: UILabel!
+    @IBOutlet weak private var lblRank: UILabel!
+    @IBOutlet weak private var lblmeasurementUnitName: UILabel!
     @IBOutlet weak private var frontImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +25,8 @@ class FoodItemTableViewCell: UITableViewCell {
 
     func setupData(itemsData: Nutrients, package: Items) {
         lblName.text = "\(Constants.FoodItemCellTitles.nutrientName) \(itemsData.name ?? "")"
-        lblbrandName.text = "\(Constants.FoodItemCellTitles.rank) \(itemsData.rank ?? 0)"
-        lblingredientsName.text = "\(Constants.FoodItemCellTitles.description) \(itemsData.description ?? "")"
+        lblRank.text = "\(Constants.FoodItemCellTitles.rank) \(itemsData.rank ?? 0)"
+        lblmeasurementUnitName.text = "\(Constants.FoodItemCellTitles.measurement_unit) \(itemsData.measurementUnit ?? "Not Available")"
         if let imageURLString = package.packaging_photos?.front?.small, !imageURLString.isEmpty {
             if let url = URL(string: imageURLString) {
                 frontImage.kf.setImage(with: url, placeholder: UIImage(named: "Nutrients"), options: nil, progressBlock: nil, completionHandler: nil)

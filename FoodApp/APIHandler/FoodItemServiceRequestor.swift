@@ -1,6 +1,6 @@
 //
-//  ServiceRequestor.swift
-//  FoosApp
+//  FoodItemServiceRequestor.swift
+//  FoodApp
 //
 //  Created by VenkateswaraReddy Nandipati on 12/07/22.
 //

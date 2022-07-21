@@ -12,7 +12,6 @@ struct Items: Codable {
     var brand: String?
     var barcode: String?
     var ingredients: String?
-    var package: Package?
     var nutrients: [Nutrients]?
     var packaging_photos: PackagingPhotos?
     private enum CodingKeys: String, CodingKey {
@@ -20,27 +19,24 @@ struct Items: Codable {
         case brand
         case barcode
         case ingredients
-        case package
         case nutrients
         case packaging_photos
     }
 }
-struct Package: Codable {
-    var quantity: String?
-    var size: String?
-    private enum Package: String, CodingKey {
-        case quantity
-        case size
-    }
-}
 struct Nutrients: Codable {
     var name: String?
-    var description: String?
+    var per100g: Double?
+    var measurementUnit: String?
     var rank: Int?
+    var dataPoints: Int?
+    var description: String?
     private enum Nutrients: String, CodingKey {
         case name
-        case description
+        case per100g = "per_100g"
+        case measurementUnit = "measurement_unit"
         case rank
+        case dataPoints = "data_points"
+        case description
     }
 }
 struct PackagingPhotos: Codable {

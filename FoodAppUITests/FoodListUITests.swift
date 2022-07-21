@@ -1,5 +1,5 @@
 //
-//  FoodAppUITests.swift
+//  FoodListUITests.swift
 //  FoodAppUITests
 //
 //  Created by VenkateswaraReddy Nandipati on 12/07/22.
@@ -8,7 +8,7 @@
 import XCTest
 import FoodApp
 
-class FoodAppUITests: XCTestCase {
+class FoodListUITests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -42,7 +42,7 @@ class FoodAppUITests: XCTestCase {
         waitForFoodItemList()
         let app = XCUIApplication()
         app.tables.cells.containing(.staticText, identifier: "rank: 600").staticTexts["FoodNameLabel"].tap()
-        let nameLabel = app.scrollViews.otherElements.staticTexts["Ingredients Label"]
+        let nameLabel = app.scrollViews.otherElements.staticTexts["Description Label"]
         XCTAssertTrue(nameLabel.exists, "detail screen shown")
     }
 

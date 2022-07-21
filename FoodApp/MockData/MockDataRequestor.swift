@@ -1,6 +1,6 @@
 //
 //  MockDataRequestor.swift
-//  FoosApp
+//  FoodApp
 //
 //  Created by VenkateswaraReddy Nandipati on 12/07/22.
 //

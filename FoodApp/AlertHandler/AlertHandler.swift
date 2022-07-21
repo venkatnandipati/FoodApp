@@ -1,6 +1,6 @@
 //
 //  AlertHandler.swift
-//  FoosApp
+//  FoodApp
 //
 //  Created by VenkateswaraReddy Nandipati on 11/07/22.
 //
