@@ -43,6 +43,7 @@ $ git clone https://github.com/venkatnandipati/FoodApp.git
 
 * pod 'SwiftLint'
 * pod 'Kingfisher'
+* pod 'MBProgressHUD'
 
 ## Notes 
 FoodApp application is tested in iPhone simulator (iOS 15.2) and not tested in real device.
