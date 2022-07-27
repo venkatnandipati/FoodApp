@@ -78,6 +78,7 @@ extension FoodListViewController {
         // Show network error message
         viewModel.showDataFetchError = { [weak self] error in
             Task { [weak self] in
+                self?.hideIndicator()
                 self?.showErrorAlertForFoodItemList(error: error)
             }
         }
